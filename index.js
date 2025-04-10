@@ -52,7 +52,9 @@ console.log("Back up cron job is set!");
         fs.unlinkSync("backups.zip");
         console.log("Old backups.zip deleted");
       }
-
+      if(!fs.existsSync("backups")) {
+        fs.mkdirSync("backups");
+      }
       connection.query("SHOW DATABASES", (error, results) => {
         if (error) {
           console.error("error fetching databases: " + error);
