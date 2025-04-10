@@ -13,8 +13,8 @@ const DB_HOST = process.env.DB_HOST;
 const DB_PASS = process.env.DB_PASS;
 console.log("Back up cron job is set!");
 
-// cron.schedule("00 23 * * *", () => {
-  (async () => {
+cron.schedule("00 23 * * *", () => {
+  // (async () => {
     console.log("Operation started!");
 
     const connection = mysql.createConnection({
@@ -99,5 +99,5 @@ console.log("Back up cron job is set!");
         });
       });
     };
-  })();
-// });
+  // })();
+});
